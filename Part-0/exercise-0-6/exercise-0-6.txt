@@ -1,0 +1,45 @@
+title 0.6: Save note on https://studies.cs.helsinki.fi/exampleapp/spa page
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+server->browser: HTML -code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server->browser: main.css
+browser->server: HTTP https://studies.cs.helsinki.fi/exampleapp/spa.js
+server->browser: spa.js
+note over browser:
+browser starts executing js-code
+that requests JSON data from server 
+end note
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server->browser: data.json
+note over browser:
+browser executes the event handler
+that renders notes to display
+end note
+browser->server: HTTP GET chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/data/js/extn-utils.html
+server->browser: extn-utils.html
+browser->server: HTTP GET chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/data/js/extn-utils.js
+server->browser: extn-utils.js
+browser->server: HTTP GET https://studies.cs.helsinki.fi/favicon.ico
+server->browser: favicon.ico
+note left of browser: User enters note text into note field
+note left of browser: User clicks "Save" button
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+note over browser:
+Payload: {content: "entering text into the field", date: "2022-08-16T14:45:50.204Z"}
+end note
+note over server:
+Response: 
+{message: "note created"}
+message: "note created"
+end note
+server->browser: "message: note created"
+note over browser:
+Browser appends text to li element
+end note
+note over browser:
+Browser appends li to ul element
+end note
+note over browser:
+Browser renders text formatted as li element (bullet point)
+end note
