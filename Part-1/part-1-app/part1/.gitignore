@@ -2,7 +2,8 @@
 
 # dependencies
 /node_modules
-node_modules
+/node_modules/**
+./node_modules/.bin/eslint --ignore-path .gitignore .
 /.pnp
 .pnp.js
 
@@ -22,3 +23,5 @@ node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
